@@ -1,0 +1,51 @@
+<div class="container" *ngIf="!hasJoinedChatRoom">
+  <div class="card">
+  
+    <div class="card-body">
+      <h3 class="card-title">Join Chat Room
+        <img src="../../assets/chatlogo.png" class="card-img-top" alt="..." class="chatlogo">
+      </h3>
+      <div class="form">
+        <div class="mb-3">
+          <label for="exampleInputchatroom" class="form-label">Chat Room</label>
+          <input type="text" class="form-control" id="exampleInputchatroom" [(ngModel)]="chatRoom"  required>
+          <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputusername" class="form-label">Username</label>
+          <input type="text" class="form-control" id="exampleInputusername" [(ngModel)]="username" required>
+        </div>
+        <button type="button" class="btn btn-primary" (click)="JoinChatRoom()" style="width: 100%;">Join</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="card" *ngIf="hasJoinedChatRoom">
+  <div class="card-body">
+  <!-- <div *ngFor="let message of messages">
+    <strong>{{message.user}}: </strong> {{message.message}}
+  </div>
+  <div class="message-input">
+    <input [(ngModel)]="newMessage" placeholder="Type your message" [value]="newMessage" />
+    <button (click)="sendMessage()">Send</button>
+  </div> -->
+  <div id="divMessages" class="messages">
+    <div *ngFor="let message of messages">
+      <strong>{{message.user}}: </strong> {{message.message}}
+    </div>
+  </div>
+
+<div class="input-zone">
+  <label id="lblMessage" for="tbMessage">Message:</label>
+  <input id="tbMessage" [(ngModel)]="newMessage" placeholder="Type your message" class="input-zone-input" type="text" />
+  <button id="btnSend" (click)="sendMessage()">Send</button>
+</div>
+</div>
+</div>
+<!-- <div id="divMessages" class="messages"></div>
+<div class="input-zone">
+  <label id="lblMessage" for="tbMessage">Message:</label>
+  <input id="tbMessage" class="input-zone-input" type="text" />
+  <button id="btnSend">Send</button>
+</div> -->
+
